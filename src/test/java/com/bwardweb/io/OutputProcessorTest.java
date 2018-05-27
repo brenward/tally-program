@@ -43,4 +43,16 @@ public class OutputProcessorTest {
         Assert.assertTrue(resultString.equals("c:3, a:2, b:1, "));
     }
 
+    @Test
+    public void testcreateOutputResultsString_validInputMatchingValues(){
+        HashMap<String,Integer> testResults= new HashMap<>();
+        testResults.put("a",2);
+        testResults.put("b",1);
+        testResults.put("c",3);
+        testResults.put("d",3);
+        String resultString =outputProcessor.createOutputResultsString(testResults);
+
+        Assert.assertTrue(resultString.equals("c:3, d:3, a:2, b:1, "));
+    }
+
 }

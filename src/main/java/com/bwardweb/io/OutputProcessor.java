@@ -3,7 +3,7 @@ package com.bwardweb.io;
 import java.util.*;
 
 public class OutputProcessor {
-    public String createOutputResultsString(final HashMap<String,Integer> results){
+    public String createOutputResultsString(final Map<String,Integer> results){
 
         if(results == null){
             return "";
@@ -32,7 +32,11 @@ public class OutputProcessor {
                 new Comparator<Map.Entry<String, Integer>>() {
                     @Override
                     public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                        return o2.getValue().compareTo(o1.getValue());
+                        if(o2.getValue().compareTo(o1.getValue()) == 0){
+                            return o1.getKey().compareTo(o2.getKey());
+                        }else {
+                            return o2.getValue().compareTo(o1.getValue());
+                        }
                     }
                 }
         );
